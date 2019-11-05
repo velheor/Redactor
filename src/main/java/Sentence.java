@@ -8,7 +8,7 @@ public class Sentence extends Word {
         sentences.add(word);
     }
 
-    public List getSentence() {
+    public List<String> getSentence() {
         return sentences;
     }
 }

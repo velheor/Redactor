@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Text extends Sentence {
-    private List<List> text = new ArrayList<List>();
+    private List<List> text = new ArrayList<>();
 
-    public void addToText(List senetences) {
-        text.add(senetences);
+    public void addToText(List senetence) {
+        text.add(senetence);
     }
 
-    public List getText() {
+    public List<List> getText() {
         return text;
     }
 }

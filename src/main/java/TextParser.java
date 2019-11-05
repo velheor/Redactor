@@ -28,9 +28,13 @@ public class TextParser {
         return text;
     }
 
-    public void output() {
-        for (Object t: textParser().getText()) {
-            System.out.println(t);
+    public static void output() {
+        Text text = textParser();
+        Mark mark;
+        for (List sentence : text.getText()) {
+            for (Object word : sentence) {
+                System.out.print(word);
+            }
         }
     }
 }

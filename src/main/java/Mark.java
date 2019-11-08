@@ -2,9 +2,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Mark {
-    private List<Character> marks = new ArrayList<Character>();
+    private char a;
 
     public void setMark(Character mark) {
-        marks.add(mark);
+        this.a = mark;
     }
+
+    public Character getMark() {
+        return this.a;
+    }
+
+
 }

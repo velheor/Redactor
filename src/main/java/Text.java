@@ -4,14 +4,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Text extends Sentence {
-    private List<List> text = new ArrayList<>();
+public class Text {
+    private List<Sentence> text = new ArrayList<>();
 
-    public void addToText(List senetence) {
+    public void addToText(Sentence senetence) {
         text.add(senetence);
     }
 
-    public List<List> getText() {
+    public void replaceSentenceInText(int i, Sentence sentence) {
+        text.set(i, sentence);
+    }
+
+    public List<Sentence> getText() {
         return text;
+    }
+
+    public int getLength() {
+        return text.size();
     }
 }

@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         TextParser textParser = new TextParser();
         textParser.textParser();
-        textParser.output();
+        textParser.sortBySizeOfSentence();
     }
 
 }

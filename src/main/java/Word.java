@@ -11,4 +11,10 @@ public class Word {
     public void setLetterInWord(char letter) {
         word.append(letter);
     }
+
+    public void showInfo() {
+        System.out.print(this.word);
+    }
+
+
 }

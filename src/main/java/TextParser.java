@@ -8,17 +8,19 @@ public class TextParser {
         Sentence sentence = new Sentence();
         Mark mark = new Mark();
         Text text = new Text();
-        String input = "I am test. This is a test!";
+        String input = "I am test. This is a test! Press f. It is time to stop.";
         for (int i = 0; i < input.length(); i++) {
             char ch = input.charAt(i);
             if (ch == ' ' || ch == ',' || ch == '.' || ch == '!' || ch == '?') {
                 if (word.getWord().length() != 0) {
-                    sentence.addToSentence(word.getWord().toString());
+                    sentence.addToSentence(word);
                     sentence.increaseCountOfWord();
                     word = new Word();
                 }
-                mark.setMark(ch);
-                sentence.addToSentence(Character.toString(mark.getMark()));
+                if (ch != ' ') {
+                    mark.setMark(ch);
+                    sentence.addToSentence(mark);
+                }
                 if (ch == '.' || ch == '!' || ch == '?') {
                     text.addToText(sentence);
                     sentence = new Sentence();
@@ -30,17 +32,7 @@ public class TextParser {
         return text;
     }
 
-    public static void output() {
-        Text text = textParser();
-        for (Sentence sentence : text.getText()) {
-            for (String word : sentence.getSentence()) {
-                System.out.print(word);
-            }
-        }
-    }
-
-    public static void sortBySizeOfSentence() {
-        Text text = textParser();
+    public static Text sortBySizeOfSentence(Text text) {
         for (int i = 0; i < text.getLength(); i++) {
             for (int j = i + 1; j < text.getLength(); j++) {
                 Sentence sentence1 = text.getText().get(i);
@@ -52,10 +44,19 @@ public class TextParser {
                 }
             }
         }
+        return text;
+    }
+    public static void outPut(Text text){
         for (Sentence sentence : text.getText()) {
-            for (String word : sentence.getSentence()) {
-                System.out.print(word);
+            for (Object word : sentence.getSentence()) {
+                if (word instanceof Word) {
+                    System.out.print(" ");
+                    ((Word) word).showInfo();
+                } else {
+                    ((Mark) word).showInfo();
+                }
             }
         }
     }
+
 }

@@ -2,21 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sentence {
-    private List<String> sentences = new ArrayList<String>();
+    private List<Object> sentences = new ArrayList<Object>();
     private Integer countOfWord = 0;
 
-    public void addToSentence(String word) {
+    public void addToSentence(Object word) {
         sentences.add(word);
     }
 
-    public List<String> getSentence() {
+    public List<Object> getSentence() {
         return sentences;
     }
 
-    public void increaseCountOfWord(){
-        this.countOfWord ++;
+    public void increaseCountOfWord() {
+        this.countOfWord++;
     }
-    public int getSentenceLength(){
+
+    public int getSentenceLength() {
         return this.countOfWord;
     }
 }

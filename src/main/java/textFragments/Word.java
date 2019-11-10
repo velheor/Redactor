@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+package textFragments;
 
 public class Word {
     private StringBuilder word = new StringBuilder();

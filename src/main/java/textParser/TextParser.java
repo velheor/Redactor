@@ -1,11 +1,18 @@
+package textParser;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import textFragments.Mark;
+import textFragments.Sentence;
+import textFragments.Text;
+import textFragments.Word;
 
 import java.io.FileReader;
 import java.io.IOException;
 
 public class TextParser {
     private static Logger logger = LoggerFactory.getLogger(TextParser.class);
+
     public static Text parser() {
         logger.info("Text read");
         Word word = new Word();

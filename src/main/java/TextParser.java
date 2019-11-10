@@ -1,13 +1,13 @@
-import java.io.FileNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class TextParser {
-
+    private static Logger logger = LoggerFactory.getLogger(TextParser.class);
     public static Text parser() {
+        logger.info("Text read");
         Word word = new Word();
         Sentence sentence = new Sentence();
         Mark mark = new Mark();
@@ -40,6 +40,7 @@ public class TextParser {
     }
 
     public static Text sortBySizeOfSentence(Text text) {
+        logger.info("Sorted by size of sentence");
         for (int i = 0; i < text.getLength(); i++) {
             for (int j = i + 1; j < text.getLength(); j++) {
                 Sentence sentence1 = text.getText().get(i);
@@ -55,6 +56,7 @@ public class TextParser {
     }
 
     public static void outPut(Text text) {
+        logger.info("Information output");
         for (Sentence sentence : text.getText()) {
             for (Object word : sentence.getSentence()) {
                 if (word instanceof Word) {

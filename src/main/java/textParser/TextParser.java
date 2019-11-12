@@ -62,17 +62,4 @@ public class TextParser {
         return text;
     }
 
-    public static void outPut(Text text) {
-        logger.info("Information output");
-        for (Sentence sentence : text.getText()) {
-            for (Object word : sentence.getSentence()) {
-                if (word instanceof Word) {
-                    System.out.print(' ');
-                    ((Word) word).showInfo();
-                } else {
-                    ((Mark) word).showInfo();
-                }
-            }
-        }
-    }
 }

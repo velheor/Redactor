@@ -13,9 +13,4 @@ public class Mark {
     public Character getMark() {
         return this.mark;
     }
-
-    public void showInfo() {
-        System.out.print(this.mark);
-    }
-
 }

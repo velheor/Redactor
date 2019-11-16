@@ -45,3 +45,7 @@
 2019-11-16 11:54:03 INFO  OutputInConsole:10 - Information output
 2019-11-16 11:55:44 INFO  InputFromFile:22 - Text read
 2019-11-16 11:55:44 INFO  OutputInConsole:10 - Information output
+2019-11-16 17:32:19 INFO  InputFromFile:22 - Text read
+2019-11-16 17:32:19 INFO  Redactor:12 - Sorted by size of sentence
+2019-11-16 17:46:37 INFO  InputFromFile:22 - Text read
+2019-11-16 17:46:37 INFO  Redactor:12 - Sorted by size of sentence

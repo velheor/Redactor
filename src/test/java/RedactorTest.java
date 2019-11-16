@@ -5,10 +5,12 @@ import textFragments.PartsOfSentence;
 import textFragments.Sentence;
 import textFragments.Text;
 import textParser.TextParser;
+import textRedactor.Redactor;
 
 import static java.util.Objects.deepEquals;
 
-public class TextParserTest {
+
+public class RedactorTest {
     private Text text = new Text();
     private Sentence sentence = new Sentence();
     private PartsOfSentence partsOfSentence = new PartsOfSentence();
@@ -39,8 +41,8 @@ public class TextParserTest {
     }
 
     @Test
-    public void parser() {
-        Text actual = TextParser.parse(InputFromFile.readFromFile(InputFromFile.openFile()));
+    public void sortBySizeOfSentence() {
+        Text actual = Redactor.sortBySizeOfSentence(TextParser.parse(InputFromFile.readFromFile(InputFromFile.openFile())));
         Text expected = this.text;
         deepEquals(actual, expected);
     }

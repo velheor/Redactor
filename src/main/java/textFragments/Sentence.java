@@ -3,7 +3,7 @@ package textFragments;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sentence{
+public class Sentence {
     private List<PartsOfSentence> sentences = new ArrayList<PartsOfSentence>();
     private Integer countOfWord = 0;
 

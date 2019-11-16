@@ -1,33 +1,34 @@
 package textParser;
-import textFragments.Mark;
+
+import textFragments.PartsOfSentence;
 import textFragments.Sentence;
 import textFragments.Text;
-import textFragments.Word;
 
 public class TextParser {
-    public Text parse(String textFromFile) {
-        Word word = new Word();
+    public static Text parse(String textFromFile) {
+        PartsOfSentence partsOfSentence = new PartsOfSentence();
         Sentence sentence = new Sentence();
-        Mark mark = new Mark();
         Text text = new Text();
         char[] letters = textFromFile.toCharArray();
         for (int i = 0; i < textFromFile.length(); i++) {
             if (letters[i] == ' ' || letters[i] == ',' || letters[i] == '.' || letters[i] == '!' || letters[i] == '?') {
-                if (word.getWord().length() != 0) {
-                    sentence.addToSentence(word);
+                if (partsOfSentence.getWord().length() != 0) {
+                    sentence.addToSentence(partsOfSentence);
                     sentence.increaseCountOfWord();
-                    word = new Word();
+                    partsOfSentence = new PartsOfSentence();
                 }
                 if (letters[i] != ' ') {
-                    mark.setMark(letters[i]);
-                    sentence.addToSentence(mark);
+                    partsOfSentence.setMark(letters[i]);
+                    sentence.addToSentence(partsOfSentence);
+                    partsOfSentence = new PartsOfSentence();
+
                 }
                 if (letters[i] == '.' || letters[i] == '!' || letters[i] == '?') {
                     text.addToText(sentence);
                     sentence = new Sentence();
                 }
             } else {
-                word.setLetterInWord(letters[i]);
+                partsOfSentence.setLetterInWord(letters[i]);
             }
         }
         return text;

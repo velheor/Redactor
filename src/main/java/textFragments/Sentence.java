@@ -3,12 +3,12 @@ package textFragments;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sentence extends Word{
+public class Sentence{
     private List<PartsOfSentence> sentences = new ArrayList<PartsOfSentence>();
     private Integer countOfWord = 0;
 
-    public void addToSentence(PartsOfSentence word) {
-        sentences.add(word);
+    public void addToSentence(PartsOfSentence partsOfSentence) {
+        sentences.add(partsOfSentence);
     }
 
     public List<PartsOfSentence> getSentence() {
@@ -16,11 +16,11 @@ public class Sentence extends Word{
     }
 
     public void increaseCountOfWord() {
-        this.countOfWord++;
+        countOfWord++;
     }
 
     public int getSentenceLength() {
-        return this.countOfWord;
+        return countOfWord;
     }
 
 }

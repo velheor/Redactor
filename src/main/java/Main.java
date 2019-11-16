@@ -1,12 +1,14 @@
+import InputFile.InputFromFile;
 import output.OutputInConsole;
 import textParser.TextParser;
 
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
-        TextParser textParser = new TextParser();
+    public static void main(String[] args){
+        InputFromFile inputFromFile = new InputFromFile();
         OutputInConsole outputInConsole = new OutputInConsole();
-        outputInConsole.output(textParser.sortBySizeOfSentence(textParser.parser()));
+        TextParser textParser = new TextParser();
+        outputInConsole.output(textParser.parse(inputFromFile.readFromFile()));
     }
-
-
 }

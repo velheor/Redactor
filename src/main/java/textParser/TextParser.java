@@ -1,65 +1,37 @@
 package textParser;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import textFragments.Mark;
 import textFragments.Sentence;
 import textFragments.Text;
 import textFragments.Word;
 
-import java.io.FileReader;
-import java.io.IOException;
-
 public class TextParser {
-    private static Logger logger = LoggerFactory.getLogger(TextParser.class);
-
-    public static Text parser() {
-        logger.info("Text read");
+    public Text parse(String textFromFile) {
         Word word = new Word();
         Sentence sentence = new Sentence();
         Mark mark = new Mark();
         Text text = new Text();
-        try (FileReader reader = new FileReader("src/Text.txt")) {
-            int ch;
-            while ((ch = reader.read()) != -1) {
-                if (ch == ' ' || ch == ',' || ch == '.' || ch == '!' || ch == '?') {
-                    if (word.getWord().length() != 0) {
-                        sentence.addToSentence(word);
-                        sentence.increaseCountOfWord();
-                        word = new Word();
-                    }
-                    if (ch != ' ') {
-                        mark.setMark((char) ch);
-                        sentence.addToSentence(mark);
-                    }
-                    if (ch == '.' || ch == '!' || ch == '?') {
-                        text.addToText(sentence);
-                        sentence = new Sentence();
-                    }
-                } else {
-                    word.setLetterInWord((char) ch);
+        char[] letters = textFromFile.toCharArray();
+        for (int i = 0; i < textFromFile.length(); i++) {
+            if (letters[i] == ' ' || letters[i] == ',' || letters[i] == '.' || letters[i] == '!' || letters[i] == '?') {
+                if (word.getWord().length() != 0) {
+                    sentence.addToSentence(word);
+                    sentence.increaseCountOfWord();
+                    word = new Word();
                 }
+                if (letters[i] != ' ') {
+                    mark.setMark(letters[i]);
+                    sentence.addToSentence(mark);
+                }
+                if (letters[i] == '.' || letters[i] == '!' || letters[i] == '?') {
+                    text.addToText(sentence);
+                    sentence = new Sentence();
+                }
+            } else {
+                word.setLetterInWord(letters[i]);
             }
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
         }
         return text;
     }
 
-    public static Text sortBySizeOfSentence(Text text) {
-        logger.info("Sorted by size of sentence");
-        for (int i = 0; i < text.getLength(); i++) {
-            for (int j = i + 1; j < text.getLength(); j++) {
-                Sentence sentence1 = text.getText().get(i);
-                Sentence sentence2 = text.getText().get(j);
-                if (sentence1.getSentenceLength() < sentence2.getSentenceLength()) {
-                    text.replaceSentenceInText(i, sentence2);
-                    text.replaceSentenceInText(j, sentence1);
-                    i = 0;
-                }
-            }
-        }
-        return text;
-    }
 
 }

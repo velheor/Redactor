@@ -1,4 +1,4 @@
-import org.junit.Before;
+/*import org.junit.Before;
 import org.junit.Test;
 import textFragments.Mark;
 import textFragments.Sentence;
@@ -42,7 +42,7 @@ public class TextParserTest {
     @Test
     public void parser() {
         TextParser textParser = new TextParser();
-        Text actual = textParser.parser();
+        Text actual = textParser.parse();
         Text expected = this.text;
         deepEquals(actual, expected);
     }
@@ -55,4 +55,4 @@ public class TextParserTest {
         deepEquals(actual, expected);
     }
 
-}
+}*/

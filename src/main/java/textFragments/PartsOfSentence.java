@@ -20,4 +20,6 @@ public class PartsOfSentence {
     public Character getMark() {
         return this.mark;
     }
+
+
 }

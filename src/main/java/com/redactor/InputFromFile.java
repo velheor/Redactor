@@ -1,4 +1,4 @@
-package InputFile;
+package com.redactor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,10 +9,10 @@ import java.io.IOException;
 public class InputFromFile {
     private static Logger logger = LoggerFactory.getLogger(InputFromFile.class);
 
-    public static FileReader openFile() {
+    public static FileReader openFile(String path) {
         FileReader reader = null;
         try {
-            reader = new FileReader("src/Text.txt");
+            reader = new FileReader(path);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -20,6 +20,7 @@ public class InputFromFile {
     }
 
     public static String readFromFile(FileReader reader) {
+        // TODO: use stringbuilder
         logger.info("Text read");
         String text = "";
         int ch;

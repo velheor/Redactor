@@ -8,10 +8,6 @@ public class Mark extends SentencePart {
       this.mark = mark;
     }
 
-    public void setMark(Character mark) {
-        this.mark = mark;
-    }
-
     public Character getMark() {
         return this.mark;
     }

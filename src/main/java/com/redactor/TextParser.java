@@ -1,19 +1,24 @@
 package com.redactor;
 
 import com.redactor.fragments.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*; 
 
 public class TextParser {
+    private static Logger logger = LoggerFactory.getLogger(TextParser.class);
+
     private static List<Character> sentenceSeparator = new ArrayList<>(
       Arrays.asList('.', '!', '?')
     );
 
     private static List<Character> listChars = new ArrayList<>(
-      Arrays.asList(',', '.', '!', '?')
+            Arrays.asList(' ', ',', '.', '!', '?')
     );
 
     public static Text parse(String sourceText) {
+        logger.info("Text parsed");
         StringBuilder sb = new StringBuilder();
         Sentence sentence = new Sentence();
         Paragraph paragraph = new Paragraph();

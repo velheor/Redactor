@@ -14,7 +14,7 @@ public class Sentence {
         sentences.add(partsOfSentence);
     }
 
-    public List<SentencePart> getSentence() {
+    public List<SentencePart> getSentencePart() {
         return sentences;
     }
 

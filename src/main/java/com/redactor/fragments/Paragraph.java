@@ -10,10 +10,6 @@ public class Paragraph {
         sentences.add(senetence);
     }
 
-    public void replaceSentence(int i, Sentence sentence) {
-        sentences.set(i, sentence);
-    }
-
     public List<Sentence> getSentences() {
         return sentences;
     }

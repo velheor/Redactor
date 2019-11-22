@@ -32,7 +32,7 @@ public class Text {
       StringBuilder sb = new StringBuilder();
       for (Paragraph paragraph: this.getParagraphs()) {
           for (Sentence sentence : paragraph.getSentences()) {
-              for (SentencePart sp : sentence.getSentence()) {
+              for (SentencePart sp : sentence.getSentencePart()) {
                   switch (sp.getType()) {
                     case WORD:
                       sb.append(" ");
